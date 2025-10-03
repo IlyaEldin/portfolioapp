@@ -4,7 +4,7 @@
   overflow-x: hidden;
   scroll-behavior: smooth;
   width: 100%;
-  max-width: calc(265 * 4px);
+  max-width: calc(265px * 4);
   padding: 1rem 0;
 }
 
@@ -55,4 +55,22 @@
 
 .btn-swiper button:active {
   transform: scale(0.95);
+}
+
+@media (max-width: 1200px) {
+  .products-wrapper {
+    max-width: calc(265px * 3); /* 3 карточки */
+  }
+}
+
+@media (max-width: 900px) {
+  .products-wrapper {
+    max-width: calc(265px * 2); /* 2 карточки */
+  }
+}
+
+@media (max-width: 600px) {
+  .products-wrapper {
+    max-width: 265px; /* 1 карточка */
+  }
 }

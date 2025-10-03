@@ -4,12 +4,13 @@
   justify-content: center;
   align-items: center;
 }
-.containerProductCard {
-  margin: 5vh 0;
-}
 .popularProductSection {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.popularProductSection h1 {
+  color: var(--accent-primary);
 }

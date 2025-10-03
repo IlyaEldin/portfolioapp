@@ -35,3 +35,20 @@
   background: var(--border-color);
   margin-bottom: 2rem;
 }
+
+.cart-container button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--accent-primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cart-logo {
+  width: 18px;
+  height: 18px;
+}
