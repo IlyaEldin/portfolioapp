@@ -1,0 +1,39 @@
+.product-swiper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-swiper {
+  /* Стили для контейнера */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-swiper button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-swiper button:hover {
+  background: var(--accent-primary);
+  transform: scale(1.1);
+}
+
+.btn-swiper button:active {
+  transform: scale(0.95);
+}
