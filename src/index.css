@@ -54,6 +54,10 @@ body.light {
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  --text-shadow-sm: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  --text-shadow-md: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  --text-shadow-lg: 2px 2px 6px rgba(0, 0, 0, 0.5);
 }
 
 /* Темная тема */
@@ -91,6 +95,10 @@ body.dark {
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+
+  --text-shadow-sm: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  --text-shadow-md: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  --text-shadow-lg: 2px 2px 6px rgba(0, 0, 0, 0.5);
 }
 
 body {

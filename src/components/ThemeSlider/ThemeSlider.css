@@ -2,8 +2,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 10%;
+  margin-right: 2rem;
 }
 .theme-slider-btn {
   padding: 0.5rem;
   min-width: 7rem;
+  border: 1px solid var(--border-dark);
+  border-radius: 10px;
 }

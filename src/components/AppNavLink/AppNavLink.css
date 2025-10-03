@@ -1,3 +1,9 @@
+.nav-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid var(--border-dark);
+}
 .active {
-  color: var(--accent-primary);
+  border-bottom-color: var(--accent-primary);
 }

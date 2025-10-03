@@ -1,13 +1,37 @@
+.header-all {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
 .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 10%;
-  padding: 2rem 0;
+  margin-left: 10%;
+  padding: 1rem 0;
 }
-.navbar {
-  width: 70%;
+.navbar,
+.navbar-all {
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   align-items: center;
+  gap: 2rem;
+  margin-right: 2rem;
+}
+
+.logo {
+  color: var(--accent-error);
+  font-weight: bolder;
+  font-size: 2rem;
+  text-shadow: var(--text-shadow-lg);
+}
+
+.header-divider {
+  border: none;
+  height: 1px;
+  background: var(--border-color);
+  margin-bottom: 2rem;
 }
