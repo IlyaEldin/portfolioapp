@@ -165,3 +165,5 @@ export const PRODUCTS = [
     discount: 0
   }
 ];
+
+export const TOPPRODUCTS = [...PRODUCTS].sort((a, b) => b.rating - a.rating).slice(0, 8);

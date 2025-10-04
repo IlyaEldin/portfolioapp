@@ -1,6 +1,6 @@
 import classes from "./HomePage.module.css";
 import ProductSliderSwiper from "../ProductSliderSwipe/ProductSliderSwiper";
-import { PRODUCTS } from "./products";
+import { TOPPRODUCTS } from "./products";
 
 export default function HomePage() {
   return (
@@ -8,7 +8,7 @@ export default function HomePage() {
       <section className={classes.popularProductSection}>
         <h1>Пополуярные товары</h1>
         <div className={classes.containerProductCard}>
-          <ProductSliderSwiper products={PRODUCTS} />
+          <ProductSliderSwiper products={TOPPRODUCTS} />
         </div>
       </section>
     </div>

@@ -1,9 +1,12 @@
 import classes from "./ProductCard.module.css";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../CartContext/CartContext";
+import ModalPortal from "../ModalPortal/ModalPortal.jsx";
+import { ProductPage } from "../ProductPage/ProductPage";
 
 export default function ProductCard({ product }) {
   const { addProductInCart } = useContext(CartContext);
+  const [isModalOpen, setModalOpen] = useState(false);
 
   return (
     <div className={classes.card}>
@@ -12,13 +15,23 @@ export default function ProductCard({ product }) {
       </div>
       <div className={classes.productContent}>
         <h3 className={classes.productName}>
-          <button>{product.name}</button>
+          <button
+            onClick={() => {
+              setModalOpen((prev) => !prev);
+            }}
+          >
+            {product.name}
+          </button>
+
+          <ModalPortal isOpen={isModalOpen}>
+            <ProductPage setOpen={setModalOpen} product={product}></ProductPage>
+          </ModalPortal>
           {/* дописать здесь заход на страницу товара */}
         </h3>
         <p className={classes.productPrice}>
           {product.price}₽/{product.units}
         </p>
-
+        <span className={classes.rating}>⭐ {product.rating}</span>
         <button
           onClick={() => {
             addProductInCart(product);
