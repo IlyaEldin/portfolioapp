@@ -2,20 +2,36 @@ import { useEffect, useState } from "react";
 import { CartContext } from "./CartContext";
 
 export function CartContextProvider({ children }) {
-  const [cartContent, setCartContent] = useState([]);
-  const [totalPrice, setTotalPrice] = useState("");
+  const [cartContent, setCartContent] = useState(() => {
+    try {
+      const saved = localStorage.getItem("cart");
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const addProductInCart = (newProduct) => {
-    {
-      cartContent.find((product) => product.id === newProduct.id)
-        ? setCartContent((prev) => prev)
-        : setCartContent((prev) => [...prev, newProduct]);
-    }
+    setCartContent((prev) => {
+      const exists = prev.find((product) => product.id === newProduct.id);
+      if (exists) {
+        return prev;
+      }
+      const newCart = [...prev, newProduct];
+      localStorage.setItem("cart", JSON.stringify(newCart));
+      return newCart;
+    });
   };
 
   const removeProductInCart = (removeProduct) => {
-    setCartContent(cartContent.filter((e) => e.id !== removeProduct.id));
+    setCartContent((prev) => {
+      const newCart = prev.filter((product) => product.id !== removeProduct.id);
+      localStorage.setItem("cart", JSON.stringify(newCart));
+      return newCart;
+    });
   };
+
   useEffect(() => {
     const totalPriceFunction = () => {
       setTotalPrice(
