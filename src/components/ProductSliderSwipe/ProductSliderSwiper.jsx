@@ -13,6 +13,11 @@ export default function ProductSliderSwiper({ products }) {
     if (scrollRef.current) {
       const scrollAmount = direction === "left" ? -cardWidth : cardWidth;
       scrollRef.current.scrollLeft += scrollAmount;
+      if (scrollRef.current.scrollLeft === 2900 && direction === "right") {
+        scrollRef.current.scrollLeft = 0;
+      } else if (scrollRef.current.scrollLeft === 0 && direction === "left") {
+        scrollRef.current.scrollLeft = 2900;
+      }
     }
   };
 
@@ -24,8 +29,8 @@ export default function ProductSliderSwiper({ products }) {
         </button>
       </div>
       <div ref={scrollRef} className='products-wrapper'>
-        {products.map((product, index) => (
-          <ProductCard key={`${product.id}-${index}`} product={product} />
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} />
         ))}
       </div>
 

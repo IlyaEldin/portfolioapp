@@ -19,7 +19,7 @@ export default function Header() {
               </div>
               <AppNavLink to={"/home"}>Главная</AppNavLink>
               <AppNavLink to={"/catalog"}>Каталог</AppNavLink>
-              <AppNavLink to={"/"}>Работа с API</AppNavLink>
+              <AppNavLink to={"/api"}>Работа с API</AppNavLink>
             </nav>
             <ThemeSlider />
           </div>
