@@ -3,23 +3,44 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./ProductSliderSwiper.css";
-import { useRef } from "react";
+import { useRef, useEffect, useCallback } from "react";
 
 export default function ProductSliderSwiper({ products }) {
   const scrollRef = useRef(null);
   const cardWidth = 265;
 
-  const scroll = (direction) => {
+  const scroll = useCallback((direction) => {
+    const maxScroll =
+      scrollRef.current.scrollWidth - scrollRef.current.clientWidth;
+
     if (scrollRef.current) {
       const scrollAmount = direction === "left" ? -cardWidth : cardWidth;
       scrollRef.current.scrollLeft += scrollAmount;
-      if (scrollRef.current.scrollLeft === 2900 && direction === "right") {
+      if (scrollRef.current.scrollLeft === maxScroll && direction === "right") {
         scrollRef.current.scrollLeft = 0;
       } else if (scrollRef.current.scrollLeft === 0 && direction === "left") {
-        scrollRef.current.scrollLeft = 2900;
+        scrollRef.current.scrollLeft = maxScroll;
       }
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      switch (event.key) {
+        case "ArrowLeft":
+          event.preventDefault();
+          scroll("left");
+          break;
+        case "ArrowRight":
+          event.preventDefault();
+          scroll("right");
+          break;
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [scroll]);
 
   return (
     <div className='product-swiper'>
