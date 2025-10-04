@@ -14,7 +14,7 @@ export default function Header() {
               <div className='cart-container'>
                 <button>
                   <img className='cart-logo' src={CartIcon} alt='star' />
-                  Корзина 0
+                  <p>Корзина 0</p>
                 </button>
               </div>
               <AppNavLink to={"/home"}>Главная</AppNavLink>
