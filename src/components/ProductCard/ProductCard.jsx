@@ -23,7 +23,7 @@ export default function ProductCard({ product }) {
             {product.name}
           </button>
 
-          <ModalPortal isOpen={isModalOpen}>
+          <ModalPortal setModalOpen={setModalOpen} isOpen={isModalOpen}>
             <ProductPage setOpen={setModalOpen} product={product}></ProductPage>
           </ModalPortal>
           {/* дописать здесь заход на страницу товара */}
