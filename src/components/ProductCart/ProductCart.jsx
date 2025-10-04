@@ -1,9 +1,9 @@
-import classes from "./ProductCard.module.css";
 import { useContext } from "react";
+import classes from "./ProductCart.module.css";
 import { CartContext } from "../CartContext/CartContext";
 
-export default function ProductCard({ product }) {
-  const { addProductInCart } = useContext(CartContext);
+export default function ProductCart({ product }) {
+  const { removeProductInCart } = useContext(CartContext);
 
   return (
     <div className={classes.card}>
@@ -15,19 +15,15 @@ export default function ProductCard({ product }) {
           <button>{product.name}</button>
           {/* дописать здесь заход на страницу товара */}
         </h3>
-        <p className={classes.productPrice}>
-          {product.price}₽/{product.units}
-        </p>
-
-        <button
-          onClick={() => {
-            addProductInCart(product);
-          }}
-          className={classes.addToCartBtn}
-        >
-          В корзину
-        </button>
+        <p className={classes.productPrice}>{product.price}₽</p>
       </div>
+      <button
+        onClick={() => {
+          removeProductInCart(product);
+        }}
+      >
+        X
+      </button>
     </div>
   );
 }

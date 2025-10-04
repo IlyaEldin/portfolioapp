@@ -37,6 +37,7 @@
 }
 
 .cart-container button {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -51,4 +52,29 @@
 .cart-logo {
   width: 18px;
   height: 18px;
+}
+
+.cart {
+  position: absolute;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-card);
+  padding: 1rem 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  max-height: 80vh;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.cart-none {
+  display: none;
+}
+
+.cart-info {
+  background-color: var(--bg-tertiary);
+  border-radius: 8px;
+  padding: 1rem;
+  color: var(--accent-success);
 }
