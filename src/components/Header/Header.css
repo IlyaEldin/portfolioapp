@@ -36,6 +36,14 @@
   margin-bottom: 2rem;
 }
 
+.divider-cart {
+  border: none;
+  height: 1px;
+  background: var(--border-color);
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 .cart-container button {
   position: relative;
   display: flex;

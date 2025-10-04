@@ -37,7 +37,7 @@ export default function ProductCart({ product }) {
           removeProductInCart(product);
         }}
       >
-        X
+        <img src='/images/trash.svg' alt='Удалить из корзины' />
       </button>
     </div>
   );

@@ -34,11 +34,12 @@ export default function Header() {
                       <ProductCart key={product.id} product={product} />
                     ))}
                   </div>
+                  <div className='divider-cart'></div>
                   <div className='cart-info'>
                     {totalPrice !== 0 ? (
-                      <h2>Итого: {totalPrice}₽</h2>
+                      <h3>Итого: {totalPrice}₽</h3>
                     ) : (
-                      <h2>Корзина пуста</h2>
+                      <h3>Корзина пуста</h3>
                     )}
                   </div>
                 </div>
