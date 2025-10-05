@@ -14,6 +14,27 @@ export default function ApiPage() {
   const [token, setToken] = useState("");
   const [search, setSearch] = useState("");
   const [searchResult, setSearchResult] = useState([]);
+  const [timeoutId, setTimeoutId] = useState(null); //храним id таймаута
+
+  const getSearchApi = async (query) => {
+    if (search === "") {
+      setSearchResult([]);
+      return null;
+    }
+    clearTimeout(timeoutId); //удаляем предыдущий
+    const timeId = setTimeout(async () => {
+      try {
+        const result = await axios.get(
+          `https://jsonplaceholder.typicode.com/posts?title_like=${query}`
+        );
+        console.log(result.data);
+        setSearchResult(result.data);
+      } catch (error) {
+        console.error("Search error:", error);
+      }
+    }, 500); // 0.5 секунды задержки перед запросом
+    setTimeoutId(timeId); //ставим id что бы потом удалить
+  };
 
   const getFromClipboard = async () => {
     try {
@@ -29,10 +50,6 @@ export default function ApiPage() {
     type === "login"
       ? setLogin(await getFromClipboard())
       : setPassword(await getFromClipboard());
-  };
-
-  const getSearchApi = async () => {
-    setSearchResult([{ id: 1, user: 2 }]);
   };
 
   const getProductsApi = async () => {
@@ -158,16 +175,12 @@ export default function ApiPage() {
         <input
           type='text'
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e) => {
+            setSearch(e.target.value);
+            getSearchApi(e.target.value);
+          }}
         />
 
-        <button
-          className={classes.button}
-          onClick={() => getSearchApi()}
-          disabled={isLoading}
-        >
-          ЖМИ ДЛЯ ПОЛУЧЕНИЯ ИНФОРМАЦИИ С FAKESTOREAPI
-        </button>
         <p>{searchResult.length ? JSON.stringify(searchResult) : ""}</p>
       </section>
     </div>
