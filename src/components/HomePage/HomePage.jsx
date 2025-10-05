@@ -1,7 +1,7 @@
 import classes from "./HomePage.module.css";
 import ProductSliderSwiper from "../ProductSliderSwipe/ProductSliderSwiper";
 import { TOPPRODUCTS } from "../../data/products.js";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import TabInfoSection from "./TabInfoSection/TabInfoSection";
 import BalanceInfo from "./InfoSection/BalanceInfo/BalanceInfo.jsx";
 import HydrationInfo from "./InfoSection/HydrationInfo/HydrationInfo.jsx";
@@ -11,6 +11,14 @@ import HabitsInfo from "./InfoSection/HabitsInfo/HabitsInfo.jsx";
 
 export default function HomePage() {
   const [typeInfo, setTypeInfo] = useState("balance");
+  const infoSectionRef = useRef();
+
+  const scrollToInfo = () => {
+    infoSectionRef.current?.scrollIntoView({
+      behavior: "smooth", // плавная прокрутка
+      block: "start", // к началу блока
+    });
+  };
 
   const sections = {
     balance: "balance", // Сбалансированное питание
@@ -44,6 +52,7 @@ export default function HomePage() {
 
   const changeInfo = (type) => {
     setTypeInfo(type);
+    scrollToInfo();
   };
 
   return (
@@ -55,7 +64,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className={classes.infoSection}>
+      <section ref={infoSectionRef} className={classes.infoSection}>
         <h1>Полезные статьи о питании</h1>
         <TabInfoSection
           typeInfo={typeInfo}

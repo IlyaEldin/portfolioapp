@@ -86,3 +86,9 @@
   padding: 1rem;
   color: var(--accent-success);
 }
+
+@media (max-width: 800px) {
+  .cart-container button p {
+    display: none;
+  }
+}
