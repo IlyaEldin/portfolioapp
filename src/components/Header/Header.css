@@ -22,7 +22,7 @@
   margin-right: 2rem;
 }
 
-.logo {
+.logo p {
   color: var(--accent-error);
   font-weight: bolder;
   font-size: 2rem;
@@ -91,6 +91,14 @@
 @media (max-width: 800px) {
   .cart-container button p {
     display: none;
+  }
+  .logo p {
+    visibility: hidden; /* Скрываем оригинальный текст */
+  }
+
+  .logo p::after {
+    content: "IE";
+    visibility: visible;
   }
 }
 

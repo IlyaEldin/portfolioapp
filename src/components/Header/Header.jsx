@@ -15,7 +15,9 @@ export default function Header() {
     <>
       <div className='header-all'>
         <div className='container'>
-          <div className='logo'>IEldin</div>
+          <div className='logo'>
+            <p>IEldin</p>
+          </div>
           <div className='navbar-all'>
             <nav className='navbar'>
               <div className='cart-container'>
