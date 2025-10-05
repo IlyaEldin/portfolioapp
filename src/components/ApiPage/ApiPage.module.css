@@ -1,0 +1,34 @@
+.container {
+  background: var(--bg-primary);
+  width: 80%;
+}
+
+.loading {
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.button {
+  background: var(--accent-primary);
+  color: var(--text-inverse);
+  padding: 12px 24px;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  margin-right: 2rem;
+}
+
+.button:disabled {
+  background: var(--text-muted);
+  cursor: not-allowed;
+}
+
+.productsGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.emptyState {
+  color: var(--text-muted);
+  font-style: italic;
+}

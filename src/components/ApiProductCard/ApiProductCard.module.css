@@ -1,0 +1,35 @@
+.productCard {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  background: var(--bg-card);
+  max-width: 400px;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.productImage img {
+  height: 15vh;
+  width: 100%;
+  object-fit: contain;
+}
+
+.productPrice {
+  font-size: 1.25rem;
+  font-weight: lighter;
+  margin-bottom: 1rem;
+  color: var(--accent-success);
+}
+
+.addToCartBtn {
+  background: var(--accent-primary);
+  color: var(--text-inverse);
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+.productRating div {
+  color: var(--accent-warning);
+}
