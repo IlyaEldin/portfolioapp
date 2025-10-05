@@ -74,6 +74,7 @@
   max-height: 80vh;
   overflow-y: auto;
   scrollbar-width: none;
+  animation: fadeIn 0.3s ease;
 }
 
 .cart-none {
@@ -90,5 +91,16 @@
 @media (max-width: 800px) {
   .cart-container button p {
     display: none;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

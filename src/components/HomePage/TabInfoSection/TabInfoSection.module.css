@@ -37,7 +37,6 @@
 
   position: sticky;
   top: 6.5rem;
-  z-index: 10000;
-
-  transition: all 0.3s ease; /*плавное появление*/
+  opacity: 1;
+  transition: all 1s ease; /*плавное появление*/
 }

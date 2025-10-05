@@ -4,6 +4,7 @@
   align-items: start;
   gap: 2rem;
   padding: 2rem;
+  animation: fadeIn 0.5s ease;
 }
 
 .filter-bar {
@@ -16,6 +17,7 @@
   border-radius: 8px;
   border: 1px solid var(--border-color);
   min-width: 200px;
+  animation: fadeIn 1s ease;
 }
 
 .filter-bar h3 {
@@ -87,6 +89,19 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1.5rem;
+  opacity: 1;
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .header-products {
