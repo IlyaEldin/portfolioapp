@@ -5,7 +5,9 @@ export default function Footer() {
     <>
       <div className={classes.footerDivider}></div>
       <div className={classes.footerContainer}>
-        <div className='logo'>IEldin</div>
+        <div className='logo'>
+          <p>IEldin</p>
+        </div>
         <div className={classes.footerInfo}>
           <p>
             &copy; {new Date().getFullYear()} IEldin. Сайт создан с

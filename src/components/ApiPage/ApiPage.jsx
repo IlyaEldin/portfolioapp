@@ -12,6 +12,8 @@ export default function ApiPage() {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [token, setToken] = useState("");
+  const [search, setSearch] = useState("");
+  const [searchResult, setSearchResult] = useState([]);
 
   const getFromClipboard = async () => {
     try {
@@ -27,6 +29,10 @@ export default function ApiPage() {
     type === "login"
       ? setLogin(await getFromClipboard())
       : setPassword(await getFromClipboard());
+  };
+
+  const getSearchApi = async () => {
+    setSearchResult([{ id: 1, user: 2 }]);
   };
 
   const getProductsApi = async () => {
@@ -48,7 +54,6 @@ export default function ApiPage() {
         username: login,
         password: password,
       });
-      console.log(result.data);
       setToken(result.data.token);
     } catch (error) {
       console.error(error.message);
@@ -59,7 +64,6 @@ export default function ApiPage() {
   const getUsersApi = async () => {
     try {
       const result = await axios.get(`${BASE_URL}/${ENDPOINTS.users}`, {});
-      console.log(result.data);
       setUsersVisible(result.data);
       return result.data;
     } catch (error) {
@@ -147,6 +151,24 @@ export default function ApiPage() {
             <User key={password} id={id} login={username} password={password} />
           ))}
         </div>
+      </section>
+      <section className={classes.searchSection}>
+        <h1>GET-ЗАПРОС Поиск товаров с использованием Debounce</h1>
+
+        <input
+          type='text'
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+
+        <button
+          className={classes.button}
+          onClick={() => getSearchApi()}
+          disabled={isLoading}
+        >
+          ЖМИ ДЛЯ ПОЛУЧЕНИЯ ИНФОРМАЦИИ С FAKESTOREAPI
+        </button>
+        <p>{searchResult.length ? JSON.stringify(searchResult) : ""}</p>
       </section>
     </div>
   );

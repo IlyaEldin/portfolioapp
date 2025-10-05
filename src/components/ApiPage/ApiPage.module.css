@@ -66,6 +66,19 @@
   border-radius: 8px;
 }
 
+.searchSection {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 2rem;
+}
+
+.searchSection input {
+  width: 30%;
+  padding: 1rem 1rem;
+  border-radius: 8px;
+}
+
 .login button,
 .password button {
   width: 200px;
