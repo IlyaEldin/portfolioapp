@@ -3,14 +3,40 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 .popularProductSection {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 1.5rem;
 }
 
 .popularProductSection h1 {
   color: var(--accent-primary);
+}
+
+.infoSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.infoSection h1 {
+  color: var(--accent-primary);
+  margin-bottom: 1rem;
+}
+
+.infoSectionContent {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 2rem;
 }

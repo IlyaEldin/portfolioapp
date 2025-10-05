@@ -1,6 +1,6 @@
 import "./Catalog.css";
 import ProductCard from "../ProductCard/ProductCard";
-import { PRODUCTS } from "../HomePage/products";
+import { PRODUCTS } from "../../data/products.js";
 import useFilter from "../../hooks/useFilter.js";
 
 export default function Catalog() {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { PRODUCTS } from "../components/HomePage/products";
+import { PRODUCTS } from "../data/products";
 
 export default function useFilter() {
     const [searchValue, setSearchValue] = useState("");

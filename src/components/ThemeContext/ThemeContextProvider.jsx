@@ -20,9 +20,7 @@ export default function ThemeContextProvider({ children }) {
   }, [theme]);
 
   const toggleTheme = () => {
-    {
-      theme === "dark" ? setTheme(lightTheme) : setTheme(darkTheme);
-    }
+    theme === "dark" ? setTheme(lightTheme) : setTheme(darkTheme);
   };
 
   const value = {

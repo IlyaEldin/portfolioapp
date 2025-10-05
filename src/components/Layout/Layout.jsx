@@ -7,6 +7,7 @@ export default function Layout() {
   return (
     <>
       <Header />
+
       <div className={classes.contain}>
         <Outlet />
       </div>
