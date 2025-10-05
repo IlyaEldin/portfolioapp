@@ -1,0 +1,43 @@
+.contain {
+  width: 30%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--bg-card);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.contain:hover {
+  border-color: var(--accent-primary);
+  background: var(--bg-secondary);
+}
+
+.userId {
+  color: var(--accent-primary);
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.userLogin {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.userPassword {
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  background: var(--bg-tertiary);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-family: monospace;
+  cursor: pointer;
+}
+
+.userPassword + p {
+  color: var(--accent-success);
+}
