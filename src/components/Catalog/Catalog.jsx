@@ -21,8 +21,18 @@ export default function Catalog() {
     handleFilterApply(); //  выполнение функции
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // плавная прокрутка
+    });
+  };
+
   return (
     <div className='catalog'>
+      <button onClick={() => scrollToTop()} className='slide-up'>
+        ↑
+      </button>
       <form onSubmit={handleFormSubmit} className='filter-bar'>
         <h3>Фильтры</h3>
 
