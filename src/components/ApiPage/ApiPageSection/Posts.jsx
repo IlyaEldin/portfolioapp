@@ -1,20 +1,17 @@
 import classes from "./Posts.module.css";
 
 export default function Posts({ posts = [], users = [] }) {
-  // Получаем имя пользователя по userId
   const getUserName = (userId) => {
     const user = users.find((user) => user.id === userId);
     return user ? user.name : `User ${userId}`;
   };
 
-  // Получаем email пользователя по userId
   const getUserEmail = (userId) => {
     const user = users.find((user) => user.id === userId);
     return user ? user.email : "";
   };
 
-  // Сокращаем длинный текст
-  const truncateText = (text, maxLength = 100) => {
+  const truncateText = (text, maxLength = 200) => {
     if (text.length <= maxLength) return text;
     return text.substring(0, maxLength) + "...";
   };
@@ -38,10 +35,10 @@ export default function Posts({ posts = [], users = [] }) {
                     {getUserEmail(post.userId)}
                   </span>
                 </div>
-                <span className={classes.postId}>#{post.id}</span>
+                <span className={classes.postId}>Пост #{post.id}</span>
               </div>
 
-              <h3 className={classes.postTitle}>{post.title}</h3>
+              <h3 className={classes.postTitle}> {post.title}</h3>
 
               <p className={classes.postBody}>{truncateText(post.body)}</p>
             </div>
