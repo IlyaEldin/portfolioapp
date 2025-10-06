@@ -2,7 +2,7 @@ import classes from "./ProductCard.module.css";
 import { useContext, useState } from "react";
 import { CartContext } from "../CartContext/CartContext";
 import ModalPortal from "../ModalPortal/ModalPortal.jsx";
-import ProductPage from "../ProductPage/ProductPage.jsx";
+import { ProductPage } from "../ProductPage/ProductPage.jsx";
 
 export default function ProductCard({ product }) {
   const { addProductInCart } = useContext(CartContext);

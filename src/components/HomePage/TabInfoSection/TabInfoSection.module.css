@@ -34,7 +34,11 @@
   align-items: center;
   gap: 1.5rem;
   margin-bottom: 3.5rem;
+  background: var(--bg-card);
 
+  height: 5vh;
+  border-radius: 8px;
+  padding: 0 1rem;
   position: sticky;
   top: 6.5rem;
   opacity: 1;

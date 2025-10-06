@@ -2,7 +2,7 @@ import { useContext } from "react";
 import classes from "./ProductPage.module.css";
 import { CartContext } from "../CartContext/CartContext";
 
-function ProductPage({ product, setOpen }) {
+export function ProductPage({ product, setOpen }) {
   const { addProductInCart } = useContext(CartContext);
 
   return (
@@ -57,5 +57,3 @@ function ProductPage({ product, setOpen }) {
     </div>
   );
 }
-
-export default ProductPage;

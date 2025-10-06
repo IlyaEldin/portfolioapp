@@ -1,75 +1,49 @@
-// ProteinsInfo.jsx
 import classes from "./ProteinsInfo.module.css";
 
 export default function ProteinsInfo() {
   return (
     <div className={classes.contain}>
-      <div className={classes.header}>
-        <h1 className={classes.title}>Белки</h1>
-        <p className={classes.subtitle}>
-          Фундаментальный строительный материал организма. Отвечают за рост,
-          восстановление и все жизненно важные процессы
-        </p>
-      </div>
+      <h1 className={classes.title}>Белки</h1>
+      <p className={classes.subtitle}>Строительный материал организма</p>
 
-      <div className={classes.importanceGrid}>
-        <div className={classes.importanceCard}>
-          <div className={classes.importanceIcon}>💪</div>
-          <h3 className={classes.importanceTitle}>Мышцы и ткани</h3>
-          <p className={classes.importanceContent}>
-            Строительный материал для мышц, органов, кожи, волос и ногтей
-          </p>
+      <div className={classes.grid}>
+        <div className={classes.card}>
+          <div className={classes.icon}>💪</div>
+          <h3>Мышцы</h3>
+          <p>Рост и восстановление</p>
         </div>
 
-        <div className={classes.importanceCard}>
-          <div className={classes.importanceIcon}>🛡️</div>
-          <h3 className={classes.importanceTitle}>Иммунитет</h3>
-          <p className={classes.importanceContent}>
-            Антитела — это белки, защищающие организм от инфекций
-          </p>
+        <div className={classes.card}>
+          <div className={classes.icon}>🛡️</div>
+          <h3>Иммунитет</h3>
+          <p>Защита от инфекций</p>
         </div>
 
-        <div className={classes.importanceCard}>
-          <div className={classes.importanceIcon}>⚡</div>
-          <h3 className={classes.importanceTitle}>Энергия и метаболизм</h3>
-          <p className={classes.importanceContent}>
-            Ферменты и гормоны регулируют все процессы в организме
-          </p>
+        <div className={classes.card}>
+          <div className={classes.icon}>⚡</div>
+          <h3>Энергия</h3>
+          <p>Ферменты и гормоны</p>
         </div>
       </div>
 
-      <div className={classes.sourcesSection}>
-        <h3 className={classes.sourcesTitle}>Лучшие источники белка</h3>
-        <div className={classes.sourcesGrid}>
-          <div className={classes.sourceItem}>
-            <div className={classes.sourceIcon}>🍗</div>
-            <div className={classes.sourceName}>Курица</div>
-            <div className={classes.sourceType}>Животный</div>
+      <div className={classes.sources}>
+        <h3>Источники</h3>
+        <div className={classes.sourceGrid}>
+          <div className={classes.source}>
+            <div>🍗</div>
+            <span>Курица</span>
           </div>
-          <div className={classes.sourceItem}>
-            <div className={classes.sourceIcon}>🐟</div>
-            <div className={classes.sourceName}>Лосось</div>
-            <div className={classes.sourceType}>Животный</div>
+          <div className={classes.source}>
+            <div>🐟</div>
+            <span>Рыба</span>
           </div>
-          <div className={classes.sourceItem}>
-            <div className={classes.sourceIcon}>🥚</div>
-            <div className={classes.sourceName}>Яйца</div>
-            <div className={classes.sourceType}>Животный</div>
+          <div className={classes.source}>
+            <div>🥚</div>
+            <span>Яйца</span>
           </div>
-          <div className={classes.sourceItem}>
-            <div className={classes.sourceIcon}>🥛</div>
-            <div className={classes.sourceName}>Творог</div>
-            <div className={classes.sourceType}>Животный</div>
-          </div>
-          <div className={classes.sourceItem}>
-            <div className={classes.sourceIcon}>🫘</div>
-            <div className={classes.sourceName}>Чечевица</div>
-            <div className={classes.sourceType}>Растительный</div>
-          </div>
-          <div className={classes.sourceItem}>
-            <div className={classes.sourceIcon}>🌰</div>
-            <div className={classes.sourceName}>Миндаль</div>
-            <div className={classes.sourceType}>Растительный</div>
+          <div className={classes.source}>
+            <div>🌰</div>
+            <span>Миндаль</span>
           </div>
         </div>
       </div>

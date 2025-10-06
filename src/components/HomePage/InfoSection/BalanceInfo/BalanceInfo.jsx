@@ -39,24 +39,6 @@ export default function BalanceInfo() {
           </p>
         </div>
       </div>
-
-      <div className={classes.ratio}>
-        <h3 className={classes.ratioTitle}>Идеальное соотношение БЖУ</h3>
-        <div className={classes.ratioGrid}>
-          <div className={classes.ratioItem}>
-            <div className={classes.ratioValue}>30%</div>
-            <div className={classes.ratioLabel}>Белки</div>
-          </div>
-          <div className={classes.ratioItem}>
-            <div className={classes.ratioValue}>30%</div>
-            <div className={classes.ratioLabel}>Жиры</div>
-          </div>
-          <div className={classes.ratioItem}>
-            <div className={classes.ratioValue}>40%</div>
-            <div className={classes.ratioLabel}>Углеводы</div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

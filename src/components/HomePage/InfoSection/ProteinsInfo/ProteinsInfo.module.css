@@ -1,129 +1,102 @@
-/* ProteinsInfo.module.css */
 .contain {
-  max-width: 800px;
-  margin: 0 auto;
   padding: 2rem;
   animation: fadeIn 0.6s ease-out;
 }
 
-.header {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
 .title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 1rem;
-  text-shadow: var(--text-shadow-sm);
-}
-
-.subtitle {
-  font-size: 1.2rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-.importanceGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-bottom: 3rem;
-}
-
-.importanceCard {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 2rem;
-  text-align: center;
-  transition: all 0.3s ease;
-  animation: slideUp 0.6s ease-out;
-}
-
-.importanceCard:nth-child(1) {
-  animation-delay: 0.1s;
-}
-.importanceCard:nth-child(2) {
-  animation-delay: 0.2s;
-}
-.importanceCard:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-.importanceCard:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-}
-
-.importanceIcon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.importanceTitle {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: var(--accent-primary);
-  margin-bottom: 1rem;
-}
-
-.importanceContent {
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-.sourcesSection {
-  background: var(--bg-secondary);
-  border-radius: 12px;
-  padding: 2.5rem;
-  animation: slideUp 0.8s ease-out;
-}
-
-.sourcesTitle {
   font-size: 1.8rem;
-  font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 2rem;
   text-align: center;
-}
-
-.sourcesGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-}
-
-.sourceItem {
-  text-align: center;
-  padding: 1.5rem;
-  background: var(--bg-primary);
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
-
-.sourceItem:hover {
-  transform: scale(1.05);
-  box-shadow: var(--shadow-md);
-}
-
-.sourceIcon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.sourceName {
-  font-weight: 600;
-  color: var(--text-primary);
   margin-bottom: 0.5rem;
 }
 
-.sourceType {
-  font-size: 0.9rem;
-  color: var(--accent-success);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+.subtitle {
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.grid {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  justify-content: space-evenly;
+}
+
+.card {
+  min-width: 20vh;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  animation: slideUp 0.6s ease-out;
+}
+
+.card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.card h3 {
+  color: var(--text-primary);
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.card p {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.sources {
+  text-align: center;
+}
+
+.sources h3 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.sourceGrid {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.sourceGrid div {
+  width: 200px;
+}
+
+.source {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.source div {
+  font-size: 1.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.source span {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
 }
 
 @keyframes fadeIn {
@@ -145,29 +118,5 @@
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@media (max-width: 768px) {
-  .contain {
-    padding: 1rem;
-  }
-
-  .title {
-    font-size: 2rem;
-  }
-
-  .importanceGrid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .sourcesSection {
-    padding: 1.5rem;
-  }
-
-  .sourcesGrid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
   }
 }

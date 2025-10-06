@@ -1,107 +1,45 @@
-/* HydrationInfo.module.css */
 .contain {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem;
+  padding: 3rem 0;
   animation: fadeIn 0.6s ease-out;
-}
-
-.header {
-  text-align: center;
-  margin-bottom: 3rem;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .title {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: 2.2rem;
   color: var(--text-primary);
+  text-align: center;
   margin-bottom: 1rem;
-  text-shadow: var(--text-shadow-sm);
 }
 
 .subtitle {
-  font-size: 1.2rem;
   color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-.waterCard {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 2.5rem;
-  margin-bottom: 2rem;
   text-align: center;
-  box-shadow: var(--shadow-sm);
-  animation: slideUp 0.6s ease-out;
-}
-
-.waterIcon {
-  font-size: 4rem;
-  margin-bottom: 1.5rem;
-}
-
-.waterAmount {
-  font-size: 3rem;
-  font-weight: 700;
-  color: var(--accent-primary);
-  margin-bottom: 1rem;
-}
-
-.waterFormula {
-  color: var(--text-secondary);
+  margin-bottom: 3rem;
   font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-}
-
-.tipsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-
-.tipCard {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 1.5rem;
-  transition: all 0.3s ease;
-  animation: slideUp 0.6s ease-out;
-}
-
-.tipCard:nth-child(1) {
-  animation-delay: 0.1s;
-}
-.tipCard:nth-child(2) {
-  animation-delay: 0.2s;
-}
-.tipCard:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-.tipCard:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--accent-primary);
-}
-
-.tipIcon {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.tipTitle {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.5rem;
-}
-
-.tipContent {
-  color: var(--text-secondary);
   line-height: 1.6;
 }
 
+.waterIcon p {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.waterIcon span {
+  font-size: 1.5rem;
+  color: var(--accent-success);
+}
+
+.btn {
+  background: var(--accent-primary);
+  width: 50%;
+  margin: auto;
+  padding: 1rem 0.5rem;
+  border-radius: 18px 18px 0px 0px;
+}
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -121,27 +59,5 @@
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@media (max-width: 768px) {
-  .contain {
-    padding: 1rem;
-  }
-
-  .title {
-    font-size: 2rem;
-  }
-
-  .waterCard {
-    padding: 1.5rem;
-  }
-
-  .waterAmount {
-    font-size: 2.5rem;
-  }
-
-  .tipsGrid {
-    grid-template-columns: 1fr;
   }
 }

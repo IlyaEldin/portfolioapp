@@ -1,141 +1,68 @@
-/* VitaminsInfo.module.css */
 .contain {
-  max-width: 800px;
-  margin: 0 auto;
   padding: 2rem;
-  animation: fadeIn 0.6s ease-out;
-}
-
-.header {
-  text-align: center;
-  margin-bottom: 3rem;
+  animation: fadeIn 0.5s ease;
 }
 
 .title {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: 1.8rem;
   color: var(--text-primary);
-  margin-bottom: 1rem;
-  text-shadow: var(--text-shadow-sm);
+  text-align: center;
+  margin-bottom: 0.5rem;
 }
 
 .subtitle {
-  font-size: 1.2rem;
   color: var(--text-secondary);
-  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
-.vitaminsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 3rem;
-}
-
-.vitaminCard {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 1.5rem;
-  transition: all 0.3s ease;
-  animation: slideUp 0.6s ease-out;
-}
-
-.vitaminCard:nth-child(1) {
-  animation-delay: 0.1s;
-}
-.vitaminCard:nth-child(2) {
-  animation-delay: 0.2s;
-}
-.vitaminCard:nth-child(3) {
-  animation-delay: 0.3s;
-}
-.vitaminCard:nth-child(4) {
-  animation-delay: 0.4s;
-}
-
-.vitaminCard:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--accent-primary);
-}
-
-.vitaminHeader {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.vitaminIcon {
-  font-size: 2.5rem;
-  flex-shrink: 0;
-}
-
-.vitaminName {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.vitaminFunction {
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-.vitaminSources {
+.grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 1rem;
+  gap: 2rem;
 }
 
-.sourceTag {
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  animation: fadeIn 1s ease;
+  width: 20vh;
+}
+
+.icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.card h3 {
+  color: var(--text-primary);
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.card p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  justify-content: center;
+}
+
+.sources span {
   background: var(--accent-primary);
   color: var(--text-inverse);
-  padding: 0.3rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 500;
-}
-
-.tipsSection {
-  background: var(--bg-secondary);
+  padding: 0.2rem 0.6rem;
   border-radius: 12px;
-  padding: 2.5rem;
-  animation: slideUp 0.8s ease-out;
+  font-size: 0.7rem;
 }
-
-.tipsTitle {
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.tipItem {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: var(--bg-primary);
-  border-radius: 8px;
-}
-
-.tipIcon {
-  font-size: 1.5rem;
-  flex-shrink: 0;
-  margin-top: 0.2rem;
-}
-
-.tipContent {
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -147,37 +74,140 @@
   }
 }
 
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+.rotateIcon {
+  animation: rotateStep 4s steps(4) infinite;
+}
+
+.drippingIcon {
+  animation: dripStep 1.6s ease-in infinite;
+}
+
+.protectionIcon {
+  animation: protectStep 2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.scaleIcon {
+  animation: scaleStep 1.3s ease-in-out infinite;
+}
+
+@keyframes scaleStep {
+  0% {
+    transform: scale(1);
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  10% {
+    transform: scale(1.1);
+  }
+  20% {
+    transform: scale(1.2);
+  }
+  30% {
+    transform: scale(1.3);
+  }
+  40% {
+    transform: scale(1.4);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  60% {
+    transform: scale(1.4);
+  }
+  70% {
+    transform: scale(1.3);
+  }
+  80% {
+    transform: scale(1.2);
+  }
+  90% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 
-@media (max-width: 768px) {
-  .contain {
-    padding: 1rem;
+@keyframes protectStep {
+  0% {
+    transform: rotate(0deg) scale(1);
   }
-
-  .title {
-    font-size: 2rem;
+  20% {
+    transform: rotate(15deg) scale(1.05);
   }
-
-  .vitaminsGrid {
-    grid-template-columns: 1fr;
+  40% {
+    transform: rotate(-12deg) scale(1.03);
   }
-
-  .tipsSection {
-    padding: 1.5rem;
+  60% {
+    transform: rotate(8deg) scale(1.01);
   }
+  80% {
+    transform: rotate(-4deg) scale(1);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
 
-  .vitaminHeader {
-    flex-direction: column;
-    text-align: center;
-    gap: 0.5rem;
+@keyframes dripStep {
+  0% {
+    transform: translateY(-20px) scale(1);
+    opacity: 0;
+  }
+  10% {
+    transform: translateY(-16px) scale(1.1);
+    opacity: 0.9;
+  }
+  20% {
+    transform: translateY(-12px) scale(1.05);
+    opacity: 1;
+  }
+  30% {
+    transform: translateY(-8px) scale(1);
+    opacity: 1;
+  }
+  40% {
+    transform: translateY(4px) scale(0.95);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(0px) scale(0.9);
+    opacity: 0.8;
+  }
+  60% {
+    transform: translateY(4px) scale(0.85);
+    opacity: 0.7;
+  }
+  70% {
+    transform: translateY(8px) scale(0.8);
+    opacity: 0.6;
+  }
+  80% {
+    transform: translateY(12px) scale(0.75);
+    opacity: 0.4;
+  }
+  90% {
+    transform: translateY(16px) scale(0.7);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(20px) scale(0.6);
+    opacity: 0;
+  }
+}
+@keyframes rotateStep {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

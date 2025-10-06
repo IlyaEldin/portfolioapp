@@ -1,7 +1,30 @@
-// HydrationInfo.jsx
+import { useEffect, useRef, useState } from "react";
 import classes from "./HydrationInfo.module.css";
 
 export default function HydrationInfo() {
+  const waterRef = useRef();
+  const [width, setWidth] = useState(0);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const updateWidth = () => {
+      if (waterRef.current) {
+        setWidth(waterRef.current.offsetWidth);
+      }
+
+      if (count * 45 >= width) {
+        console.log(1);
+        setCount(0);
+      }
+    };
+
+    updateWidth();
+
+    window.addEventListener("resize", updateWidth);
+
+    return () => window.removeEventListener("resize", updateWidth);
+  }, [width, count]);
+
   return (
     <div className={classes.contain}>
       <div className={classes.header}>
@@ -12,43 +35,20 @@ export default function HydrationInfo() {
         </p>
       </div>
 
-      <div className={classes.waterCard}>
-        <div className={classes.waterIcon}>💧</div>
-        <div className={classes.waterAmount}>2-3 литра</div>
-        <p className={classes.waterFormula}>Рекомендуемая норма в день</p>
-        <p className={classes.tipContent}>
-          <strong>Формула:</strong> 30-40 мл воды на 1 кг вашего веса
-        </p>
-      </div>
-
-      <div className={classes.tipsGrid}>
-        <div className={classes.tipCard}>
-          <div className={classes.tipIcon}>⏰</div>
-          <h3 className={classes.tipTitle}>Регулярность</h3>
-          <p className={classes.tipContent}>
-            Пейте небольшими порциями в течение дня. Стакан воды утром натощак
-            запускает метаболизм.
-          </p>
-        </div>
-
-        <div className={classes.tipCard}>
-          <div className={classes.tipIcon}>🎯</div>
-          <h3 className={classes.tipTitle}>Сигналы жажды</h3>
-          <p className={classes.tipContent}>
-            Не ждите чувства жажды — это уже признак обезвоживания. Сухость во
-            рту, усталость, головная боль.
-          </p>
-        </div>
-
-        <div className={classes.tipCard}>
-          <div className={classes.tipIcon}>🍋</div>
-          <h3 className={classes.tipTitle}>Качество воды</h3>
-          <p className={classes.tipContent}>
-            Добавляйте лимон, мяту, ягоды. Ограничьте сладкие напитки — они не
-            заменяют чистую воду.
-          </p>
+      <div ref={waterRef} className={classes.waterCard}>
+        <div className={classes.waterIcon}>
+          <p>{count ? "💧".repeat(count) : <span>Нажми на кнопку</span>}</p>
         </div>
       </div>
+
+      <button
+        className={classes.btn}
+        onClick={() => {
+          setCount(count + 1);
+        }}
+      >
+        ПОИГРАЙ С ВОДОЙ
+      </button>
     </div>
   );
 }
