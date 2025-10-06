@@ -16,9 +16,14 @@ export default function Catalog() {
     setCategory,
   } = useFilter();
 
+  const handleFormSubmit = (e) => {
+    e.preventDefault(); // от перезагрузки
+    handleFilterApply(); //  выполнение функции
+  };
+
   return (
     <div className='catalog'>
-      <div className='filter-bar'>
+      <form onSubmit={handleFormSubmit} className='filter-bar'>
         <h3>Фильтры</h3>
 
         <div className='filter-group'>
@@ -35,7 +40,12 @@ export default function Catalog() {
           <h4>Категория</h4>
           <select
             value={category}
-            onChange={(event) => setCategory(event.target.value)}
+            onChange={(event) => {
+              const newCategory = event.target.value;
+              setCategory(newCategory);
+              handleFilterApply(newCategory);
+              event.target.blur();
+            }}
           >
             <option value='Все категории'>Все категории</option>
             <option value='Фрукты'>Фрукты</option>
@@ -54,27 +64,29 @@ export default function Catalog() {
                 onChange={(event) => handleInitPrice(event, "-")}
                 type='text'
                 placeholder='От'
-                min='0'
               />
               <input
                 value={priceValue[1]}
                 onChange={(event) => handleInitPrice(event, "+")}
                 type='text'
                 placeholder='До'
-                min='0'
               />
             </div>
           </div>
         </div>
         <div className='filter-actions'>
-          <button onClick={handleFilterApply} className='apply-btn'>
+          <button type='submit' className='apply-btn'>
             Применить
           </button>
-          <button onClick={handleFilterReset} className='reset-btn'>
+          <button
+            type='button'
+            onClick={handleFilterReset}
+            className='reset-btn'
+          >
             Сбросить
           </button>
         </div>
-      </div>
+      </form>
 
       <div className='products'>
         <div className='header-products'>

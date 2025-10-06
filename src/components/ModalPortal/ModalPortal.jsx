@@ -5,14 +5,14 @@ import { useEffect } from "react";
 export default function ModalPortal({ children, isOpen, setModalOpen }) {
   useEffect(() => {
     const closeModal = (e) => {
-      if (e.key === "Escape") {
+      if (e.key === "Escape" && typeof setModalOpen === "function") {
         setModalOpen(false);
       }
     };
 
     window.addEventListener("keydown", closeModal);
     return () => window.removeEventListener("keydown", closeModal);
-  }, [setModalOpen, isOpen]);
+  }, [setModalOpen]);
 
   if (!isOpen) return null;
 

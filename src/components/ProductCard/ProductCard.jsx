@@ -2,32 +2,45 @@ import classes from "./ProductCard.module.css";
 import { useContext, useState } from "react";
 import { CartContext } from "../CartContext/CartContext";
 import ModalPortal from "../ModalPortal/ModalPortal.jsx";
-import { ProductPage } from "../ProductPage/ProductPage";
+import ProductPage from "../ProductPage/ProductPage.jsx";
 
 export default function ProductCard({ product }) {
   const { addProductInCart } = useContext(CartContext);
-  const [isModalOpen, setModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <div className={classes.card}>
       <div className={classes.productImage}>
-        <img src={product.image} alt={product.name} />
+        <img
+          style={{ cursor: "pointer" }}
+          onClick={() => {
+            setIsModalOpen((prev) => !prev);
+          }}
+          src={product.image}
+          alt={product.name}
+        />
       </div>
       <div className={classes.productContent}>
         <h3 className={classes.productName}>
           <button
             onClick={() => {
-              setModalOpen((prev) => !prev);
+              setIsModalOpen(true);
             }}
           >
             {product.name}
           </button>
-
-          <ModalPortal setModalOpen={setModalOpen} isOpen={isModalOpen}>
-            <ProductPage setOpen={setModalOpen} product={product}></ProductPage>
-          </ModalPortal>
-          {/* дописать здесь заход на страницу товара */}
         </h3>
+        {isModalOpen && (
+          <ModalPortal setModalOpen={setIsModalOpen} isOpen={isModalOpen}>
+            <ProductPage
+              setOpen={setIsModalOpen}
+              product={product}
+            ></ProductPage>
+          </ModalPortal>
+        )}
+
+        {/* заход на страницу товара */}
+
         <p className={classes.productPrice}>
           {product.price}₽/{product.units}
         </p>

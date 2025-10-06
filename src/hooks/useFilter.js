@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { PRODUCTS } from "../data/products";
 
 export default function useFilter() {
@@ -6,13 +6,14 @@ export default function useFilter() {
     const [priceValue, setPriceValue] = useState(["", ""]);
     const [category, setCategory] = useState("Все категории");
     const [productsVisible, setProductVisible] = useState(PRODUCTS);
+    const MAX_PRiCE = 1000;
 
-    const handleFilterApply = () => {
+    const handleFilterApply = useCallback((filterCategory = category) => {
         console.log(priceValue);
         let priceValueNew = "";
 
         if (priceValue[0] !== "" && priceValue[1] === "") {
-            priceValueNew = 1000;
+            priceValueNew = MAX_PRiCE;
         } else {
             priceValueNew = priceValue[1];
         }
@@ -22,21 +23,21 @@ export default function useFilter() {
                 (product) =>
                     (product.name.toLowerCase().includes(searchValue.toLowerCase()) ||
                         searchValue === "") &&
-                    (category === product.category || category === "Все категории") &&
+                    (filterCategory === product.category || filterCategory === "Все категории") &&
                     (product.price < priceValueNew || priceValueNew === "") &&
                     (product.price > priceValue[0] || priceValue[0] === "")
             )
         );
-    };
+    }, [searchValue, priceValue, category])
 
-    const handleFilterReset = () => {
+    const handleFilterReset = useCallback(() => {
         setSearchValue("");
         setPriceValue(["", ""]);
         setCategory("Все категории");
         setProductVisible(PRODUCTS);
-    };
+    }, []);
 
-    const handleInitPrice = (event, type) => {
+    const handleInitPrice = useCallback((event, type) => {
         const newValue = event.target.value;
 
         // проверка на стирание
@@ -53,7 +54,8 @@ export default function useFilter() {
                     : [numericValue, prev[1]]
                 : prev
         );
-    };
+    }, [])
+
 
     return { searchValue, priceValue, category, handleInitPrice, handleFilterReset, handleFilterApply, productsVisible, setSearchValue, setCategory }
 
