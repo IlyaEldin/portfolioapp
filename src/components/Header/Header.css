@@ -4,6 +4,7 @@
   left: 0;
   right: 0;
   z-index: 1000;
+  background: var(--bg-primary);
 }
 
 .container {
@@ -33,7 +34,7 @@
   border: none;
   height: 1px;
   background: var(--border-color);
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
 }
 
 .divider-cart {
