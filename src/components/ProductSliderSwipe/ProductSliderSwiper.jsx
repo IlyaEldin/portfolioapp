@@ -16,9 +16,15 @@ export default function ProductSliderSwiper({ products }) {
     if (scrollRef.current) {
       const scrollAmount = direction === "left" ? -cardWidth : cardWidth;
       scrollRef.current.scrollLeft += scrollAmount;
-      if (scrollRef.current.scrollLeft === maxScroll && direction === "right") {
+      if (
+        Math.round(scrollRef.current.scrollLeft) === maxScroll &&
+        direction === "right"
+      ) {
         scrollRef.current.scrollLeft = 0;
-      } else if (scrollRef.current.scrollLeft === 0 && direction === "left") {
+      } else if (
+        Math.round(scrollRef.current.scrollLeft) === 0 &&
+        direction === "left"
+      ) {
         scrollRef.current.scrollLeft = maxScroll;
       }
     }

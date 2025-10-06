@@ -91,6 +91,9 @@
 .token p {
   color: var(--accent-success);
 }
+.token p span {
+  color: var(--accent-error);
+}
 
 .usersList {
   display: flex;

@@ -33,7 +33,9 @@ export default function User({ id, login, password }) {
       >
         {password}
       </span>
-      <p>{copied ? "Значение скопировано" : ""}</p>
+      <div className={classes.copyPoint}>
+        <p>{copied ? "Значение скопировано" : "Скопируйте значение"}</p>
+      </div>
     </div>
   );
 }
