@@ -1,12 +1,18 @@
 import classes from "./ProductCard.module.css";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { CartContext } from "../CartContext/CartContext";
 import ModalPortal from "../ModalPortal/ModalPortal.jsx";
 import { ProductPage } from "../ProductPage/ProductPage.jsx";
+import { ButtonAddToCart } from "../ButtonAddToCart/ButtonAddToCart.jsx";
 
 export default function ProductCard({ product }) {
-  const { addProductInCart } = useContext(CartContext);
+  const { cartContent } = useContext(CartContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [inCart, setInCart] = useState(true);
+
+  useEffect(() => {
+    setInCart(cartContent.find((cartProduct) => cartProduct.id === product.id));
+  }, [cartContent, product.id]);
 
   return (
     <div className={classes.card}>
@@ -33,26 +39,18 @@ export default function ProductCard({ product }) {
         {isModalOpen && (
           <ModalPortal setModalOpen={setIsModalOpen} isOpen={isModalOpen}>
             <ProductPage
+              inCart={inCart}
               setOpen={setIsModalOpen}
               product={product}
             ></ProductPage>
           </ModalPortal>
         )}
-
         {/* заход на страницу товара */}
-
         <p className={classes.productPrice}>
           {product.price}₽/{product.units}
         </p>
         <span className={classes.rating}>⭐ {product.rating}</span>
-        <button
-          onClick={() => {
-            addProductInCart(product);
-          }}
-          className={classes.addToCartBtn}
-        >
-          В корзину
-        </button>
+        <ButtonAddToCart product={product} inCart={inCart} />
       </div>
     </div>
   );

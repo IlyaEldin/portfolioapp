@@ -1,0 +1,61 @@
+.countProduct {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 0rem 1rem;
+  padding: 0.5rem;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+}
+
+.countProduct p {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent-success);
+  min-width: 2rem;
+  text-align: center;
+}
+
+.countProduct button {
+  background: var(--accent-primary);
+  color: var(--text-primary);
+  border: none;
+  border-radius: 6px;
+  width: 35%;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.countProduct button:hover {
+  background: var(--accent-secondary);
+  transform: scale(1.1);
+}
+
+.countProduct button:active {
+  transform: scale(0.95);
+}
+.addToCartBtn {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--accent-primary);
+  border: none;
+  border-radius: 6px;
+}
+.addToCartBtn:hover {
+  color: var(--text-primary);
+}
+
+.BtnDisabled {
+  background-color: var(--text-muted);
+}
+.BtnDisabled:hover {
+  cursor: not-allowed;
+}

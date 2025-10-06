@@ -9,10 +9,10 @@ export default function TabInfoSection({ typeInfo, changeInfo, sections }) {
   return (
     <div className={classes.tabSection}>
       <button
-        className={btnActive(sections.balance)}
-        onClick={() => changeInfo(sections.balance)}
+        className={btnActive(sections.vitamins)}
+        onClick={() => changeInfo(sections.vitamins)}
       >
-        Баланс
+        Витамины
       </button>
       <button
         className={btnActive(sections.hydration)}
@@ -27,10 +27,10 @@ export default function TabInfoSection({ typeInfo, changeInfo, sections }) {
         Белки
       </button>
       <button
-        className={btnActive(sections.vitamins)}
-        onClick={() => changeInfo(sections.vitamins)}
+        className={btnActive(sections.balance)}
+        onClick={() => changeInfo(sections.balance)}
       >
-        Витамины
+        Баланс
       </button>
       <button
         className={btnActive(sections.habits)}

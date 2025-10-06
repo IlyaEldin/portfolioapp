@@ -1,10 +1,7 @@
-import { useContext } from "react";
 import classes from "./ProductPage.module.css";
-import { CartContext } from "../CartContext/CartContext";
+import { ButtonAddToCart } from "../ButtonAddToCart/ButtonAddToCart";
 
-export function ProductPage({ product, setOpen }) {
-  const { addProductInCart } = useContext(CartContext);
-
+export function ProductPage({ product, setOpen, inCart }) {
   return (
     <div className={classes.productPage}>
       <button className={classes.closeBtn} onClick={() => setOpen(false)}>
@@ -46,13 +43,7 @@ export function ProductPage({ product, setOpen }) {
           )}
         </div>
 
-        <button
-          onClick={() => addProductInCart(product)}
-          className={classes.addToCartBtn}
-          disabled={!product.inStock}
-        >
-          {product.inStock ? "Добавить в корзину" : "Товар закончился"}
-        </button>
+        <ButtonAddToCart inCart={inCart} product={product} />
       </div>
     </div>
   );

@@ -11,8 +11,8 @@
 }
 
 .productImage img {
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   object-fit: cover;
   border-radius: 6px;
 }
@@ -47,10 +47,6 @@
   color: var(--text-secondary);
   background-color: rgba(0, 0, 0, 0);
   border-radius: 8px;
-}
-
-.card > button:hover {
-  border: 1px solid black;
 }
 
 .card > button img {

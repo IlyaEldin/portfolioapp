@@ -10,7 +10,7 @@ import VitaminsInfo from "./InfoSection/VitaminsInfo/VitaminsInfo.jsx";
 import HabitsInfo from "./InfoSection/HabitsInfo/HabitsInfo.jsx";
 
 export default function HomePage() {
-  const [typeInfo, setTypeInfo] = useState("balance");
+  const [typeInfo, setTypeInfo] = useState("vitamins");
   const infoSectionRef = useRef();
 
   const scrollToInfo = () => {

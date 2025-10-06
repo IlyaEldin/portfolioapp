@@ -7,7 +7,8 @@ import { ProductPage } from "../ProductPage/ProductPage";
 export default function ProductCart({ product }) {
   const [isModalOpen, setModalOpen] = useState(false);
 
-  const { removeProductInCart } = useContext(CartContext);
+  const { removeProductInCart, removeCountProductInCart, addProductInCart } =
+    useContext(CartContext);
 
   return (
     <div className={classes.card}>
@@ -30,7 +31,12 @@ export default function ProductCart({ product }) {
 
           {/* дописать здесь заход на страницу товара */}
         </h3>
-        <p className={classes.productPrice}>{product.price}₽</p>
+        <p className={classes.productPrice}>{product.price * product.count}₽</p>
+        <div className={classes.countProduct}>
+          <button onClick={() => removeCountProductInCart(product)}>-</button>
+          <p>{product.count}</p>
+          <button onClick={() => addProductInCart(product)}>+</button>
+        </div>
       </div>
       <button
         onClick={() => {
