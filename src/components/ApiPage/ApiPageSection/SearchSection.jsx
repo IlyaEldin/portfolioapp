@@ -7,6 +7,7 @@ export function SearchSection() {
   const [search, setSearch] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [usersResult, setUsersResult] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [timeoutId, setTimeoutId] = useState(null); //храним id таймаута
 
@@ -15,6 +16,7 @@ export function SearchSection() {
 
     const timeId = setTimeout(async () => {
       try {
+        setIsLoading(true);
         if (query === "") {
           setSearchResult([]);
         } else {
@@ -26,6 +28,8 @@ export function SearchSection() {
         }
       } catch (error) {
         console.error("Search error:", error);
+      } finally {
+        setIsLoading(false);
       }
     }, 500); // 0.5 секунды задержки перед запросом
     setTimeoutId(timeId); //ставим id что бы потом удалить
@@ -34,10 +38,10 @@ export function SearchSection() {
   useEffect(() => {
     const getUsersApi = async () => {
       try {
+        setIsLoading(true);
         const result = await axios.get(
           `https://jsonplaceholder.typicode.com/users`
         );
-        // console.log(result.data);
         setUsersResult(
           result.data.map(({ id, name, username, email }) => ({
             id,
@@ -48,16 +52,18 @@ export function SearchSection() {
         );
       } catch (error) {
         console.error("Search error:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
     getUsersApi();
-  });
+  }, []);
 
   return (
     <section className={classes.searchSection}>
       <h1>GET-ЗАПРОС Поиск товаров с использованием Debounce</h1>
-
+      <div className={classes.loading}>{isLoading ? "Загрузка..." : ""}</div>
       <input
         type='text'
         value={search}
@@ -65,6 +71,7 @@ export function SearchSection() {
           setSearch(e.target.value);
           getSearchApi(e.target.value);
         }}
+        placeholder='Например: "ga", "lat", "mol"'
       />
       <h1>Составление постов для полученых пользователей через useEffect</h1>
       <Posts posts={searchResult.slice(0, 10)} users={usersResult} />
