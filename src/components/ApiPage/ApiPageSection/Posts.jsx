@@ -48,3 +48,4 @@ export default function Posts({ posts = [], users = [] }) {
     </div>
   );
 }
+// изменений не требует

@@ -1,7 +1,3 @@
-.postsContainer {
-  padding: 20px 0;
-}
-
 .postsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));

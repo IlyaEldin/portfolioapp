@@ -75,7 +75,7 @@
 }
 
 .rotateIcon {
-  animation: rotateStep 4s steps(4) infinite;
+  animation: rotateStep 8s linear infinite;
 }
 
 .drippingIcon {
@@ -198,7 +198,7 @@
   0% {
     transform: rotate(0deg);
   }
-  25% {
+  /* 25% {
     transform: rotate(90deg);
   }
   50% {
@@ -206,7 +206,7 @@
   }
   75% {
     transform: rotate(270deg);
-  }
+  } */
   100% {
     transform: rotate(360deg);
   }

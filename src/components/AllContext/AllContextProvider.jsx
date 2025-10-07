@@ -8,3 +8,4 @@ export function AllContextProvider({ children }) {
     </ThemeContextProvider>
   );
 }
+// изменений не требует
