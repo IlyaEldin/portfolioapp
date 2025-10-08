@@ -115,6 +115,19 @@
   .container {
     margin-left: 0;
   }
+  .logo {
+    margin-left: 2rem;
+  }
+
+  .cart-container button {
+    margin-right: 2rem;
+  }
+}
+
+@media (max-width: 785px) {
+  .container {
+    padding: 0;
+  }
 }
 
 @media (max-width: 620px) {
@@ -124,11 +137,15 @@
     top: 4.45rem;
     width: 100%;
   }
+
+  .cart-container {
+    margin-right: 0;
+  }
   .container {
-    justify-content: start;
+    /* justify-content: start; */
     padding: 0;
   }
-  .logo p {
+  .logo {
     margin-left: 1rem;
   }
   .navigation {
@@ -139,7 +156,7 @@
   }
   .navbar {
     margin-left: 3rem;
-    gap: 2rem;
+    gap: 0rem;
   }
 }
 

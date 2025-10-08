@@ -5,7 +5,7 @@
   scroll-behavior: smooth;
   width: 100%;
   max-width: calc(265px * 4);
-  padding: 1rem 0;
+  padding: 0rem 0;
   animation: fadeIn 0.5s ease-out;
 }
 
@@ -82,7 +82,7 @@
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 680px) {
   .products-wrapper {
     max-width: 265px; /* 1 карточка */
   }

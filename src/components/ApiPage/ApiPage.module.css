@@ -61,7 +61,7 @@
 
 .login input,
 .password input {
-  width: 30%;
+  width: 70%;
   padding: 0.5rem 0.5rem;
   border-radius: 8px;
 }
@@ -74,14 +74,14 @@
 }
 
 .searchSection input {
-  width: 30%;
+  width: 60%;
   padding: 1rem 1rem;
   border-radius: 8px;
 }
 
 .login button,
 .password button {
-  width: 200px;
+  width: 30%;
 }
 
 .authSection button {
