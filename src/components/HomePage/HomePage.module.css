@@ -15,6 +15,7 @@
 
 .popularProductSection h1 {
   color: var(--accent-primary);
+  text-align: center;
 }
 
 .infoSection {
