@@ -90,6 +90,7 @@
 
 .token p {
   color: var(--accent-success);
+  word-break: break-all;
 }
 .token p span {
   color: var(--accent-error);

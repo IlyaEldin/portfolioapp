@@ -31,7 +31,7 @@ export default function Header() {
 
     const visibleMobileNavBar = () => {
       {
-        setIsMobileOpen(document.documentElement.clientWidth <= 769);
+        setIsMobileOpen(document.documentElement.clientWidth <= 820);
       }
     };
 
