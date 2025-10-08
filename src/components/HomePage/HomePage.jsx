@@ -65,7 +65,7 @@ export default function HomePage() {
       </section>
 
       <section ref={infoSectionRef} className={classes.infoSection}>
-        <h1>Полезные статьи о питании</h1>
+        <h1 style={{ textAlign: "center" }}>Полезные статьи о питании</h1>
         <TabInfoSection
           typeInfo={typeInfo}
           changeInfo={changeInfo}

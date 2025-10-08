@@ -20,9 +20,9 @@
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .card {
@@ -90,5 +90,19 @@
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+@media (max-width: 768px) {
+  .card {
+    padding: 1rem;
+  }
+  .grid {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-direction: column;
+  }
+  .title {
+    font-size: 1.5rem;
   }
 }

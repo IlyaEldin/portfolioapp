@@ -61,3 +61,17 @@
     transform: translateY(0);
   }
 }
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.8rem;
+  }
+  .subtitle {
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 1rem;
+    padding: 0.5rem;
+    line-height: 1.6;
+  }
+}

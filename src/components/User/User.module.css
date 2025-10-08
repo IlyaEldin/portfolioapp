@@ -48,3 +48,31 @@
   display: flex;
   justify-content: end;
 }
+.containUser {
+  display: flex;
+  justify-content: start;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .contain {
+    width: 95%;
+    min-width: 200px;
+    flex-direction: column;
+    align-items: start;
+  }
+  .userId {
+    font-size: 1rem;
+  }
+
+  .userLogin {
+    font-size: 1rem;
+  }
+
+  .userPassword {
+    font-size: 1rem;
+  }
+  .copyPoint {
+    display: none;
+  }
+}

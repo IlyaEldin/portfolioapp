@@ -137,3 +137,28 @@
   margin-bottom: 1rem;
   margin-left: 1.5rem;
 }
+
+@media (max-width: 620px) {
+  .catalog {
+    flex-direction: column;
+    margin: 0;
+    width: 100%;
+  }
+  .filter-bar {
+    width: 100%;
+  }
+  .header-products {
+    display: flex;
+    justify-content: center;
+  }
+  .products-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .slide-up {
+    bottom: 4vh;
+    left: 4vh;
+  }
+}

@@ -11,7 +11,11 @@ import { NavLink } from "react-router-dom";
 export default function Header() {
   const { cartContent, totalPrice } = useContext(CartContext);
   const [isCartVisible, setCartVisible] = useState(false);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isMobileOpenBar, setIsMobileOpenBar] = useState(false);
+
   const cartRef = useRef(null);
+  const menuRef = useRef(null);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -19,16 +23,31 @@ export default function Header() {
         //существует и нажатие вне дочерних элементов event.target элемент по которому произошло нажатие
         setCartVisible(false);
       }
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        //существует и нажатие вне дочерних элементов event.target элемент по которому произошло нажатие
+        setIsMobileOpenBar(false);
+      }
     };
 
-    if (isCartVisible) {
+    const visibleMobileNavBar = () => {
+      {
+        setIsMobileOpen(document.documentElement.clientWidth <= 620);
+      }
+    };
+
+    visibleMobileNavBar();
+
+    window.addEventListener("resize", visibleMobileNavBar);
+
+    if (isCartVisible || isMobileOpenBar) {
       document.addEventListener("mousedown", handleClickOutside);
     }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      window.removeEventListener("resize", visibleMobileNavBar);
     };
-  }, [isCartVisible]);
+  }, [isCartVisible, isMobileOpenBar]);
 
   return (
     <>
@@ -36,7 +55,7 @@ export default function Header() {
         <div className='container'>
           <div className='logo'>
             <NavLink to={"/home"}>
-              <p>IEldin</p>
+              {isMobileOpen ? <p>IE</p> : <p>IEldin</p>}
             </NavLink>
           </div>
           <div className='navbar-all'>
@@ -44,7 +63,10 @@ export default function Header() {
               <div className='cart-container'>
                 <button
                   onClick={() => {
-                    setCartVisible(true);
+                    if (isMobileOpenBar) {
+                      setIsMobileOpenBar(false);
+                    }
+                    setCartVisible((prev) => !prev);
                   }}
                 >
                   <img className='cart-logo' src={CartIcon} alt='star' />
@@ -70,11 +92,28 @@ export default function Header() {
                   </div>
                 </div>
               </div>
-              <AppNavLink to={"/home"}>Главная</AppNavLink>
-              <AppNavLink to={"/catalog"}>Каталог</AppNavLink>
-              <AppNavLink to={"/api"}>Работа с API</AppNavLink>
+              {isMobileOpen ? (
+                <div ref={menuRef} className='mobile-navigation'>
+                  <button onClick={() => setIsMobileOpenBar((prev) => !prev)}>
+                    ☰
+                  </button>
+                  {isMobileOpenBar && (
+                    <div className='mobile-navigation-bar'>
+                      <AppNavLink to={"/home"}>Главная</AppNavLink>
+                      <AppNavLink to={"/catalog"}>Каталог</AppNavLink>
+                      <AppNavLink to={"/api"}>Работа с API</AppNavLink>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <div className='navigation'>
+                  <AppNavLink to={"/home"}>Главная</AppNavLink>
+                  <AppNavLink to={"/catalog"}>Каталог</AppNavLink>
+                  <AppNavLink to={"/api"}>Работа с API</AppNavLink>
+                </div>
+              )}
             </nav>
-            <ThemeSlider />
+            <ThemeSlider isMobileOpen={isMobileOpen} />
           </div>
         </div>
         <div className='header-divider'></div>

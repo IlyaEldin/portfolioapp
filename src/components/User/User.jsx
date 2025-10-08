@@ -18,21 +18,24 @@ export default function User({ id, login, password }) {
 
   return (
     <div className={classes.contain}>
-      <span className={classes.userId}>#{id}</span>
-      <span
-        className={classes.userLogin}
-        onClick={() => copy("login")}
-        title='Кликните чтобы скопировать логин'
-      >
-        {login}
-      </span>
-      <span
-        className={classes.userPassword}
-        onClick={() => copy("password")}
-        title='Кликните чтобы скопировать пароль'
-      >
-        {password}
-      </span>
+      <div className={classes.containUser}>
+        <span className={classes.userId}>#{id}</span>
+        <span
+          className={classes.userLogin}
+          onClick={() => copy("login")}
+          title='Кликните чтобы скопировать логин'
+        >
+          {login}
+        </span>
+        <span
+          className={classes.userPassword}
+          onClick={() => copy("password")}
+          title='Кликните чтобы скопировать пароль'
+        >
+          {password}
+        </span>
+      </div>
+
       <div className={classes.copyPoint}>
         <p>{copied ? "Значение скопировано" : "Скопируйте значение"}</p>
       </div>

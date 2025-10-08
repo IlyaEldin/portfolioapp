@@ -44,3 +44,18 @@
   opacity: 1;
   transition: all 1s ease; /*плавное появление*/
 }
+
+@media (max-width: 768px) {
+  .tabSection {
+    flex-direction: column;
+    width: 90%;
+    height: 100%;
+    padding: 1rem 0rem;
+    position: static;
+  }
+
+  .btnInfoSection {
+    width: 90%;
+    transition: all 0.4s ease;
+  }
+}

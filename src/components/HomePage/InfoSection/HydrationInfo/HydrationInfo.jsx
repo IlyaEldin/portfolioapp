@@ -12,7 +12,7 @@ export default function HydrationInfo() {
         setWidth(waterRef.current.offsetWidth);
       }
 
-      if (count * 45 >= width) {
+      if (count * 55 >= width) {
         console.log(1);
         setCount(0);
       }

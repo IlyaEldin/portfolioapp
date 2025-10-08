@@ -59,6 +59,9 @@
 
 .sources {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .sources h3 {
@@ -70,7 +73,7 @@
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .sourceGrid div {
@@ -83,14 +86,19 @@
   border-radius: 6px;
   padding: 0.5rem;
   text-align: center;
+  flex-direction: column;
 }
 
 .source div {
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin-bottom: 0.3rem;
 }
 
-.source span {
+.source div + div {
+  font-size: 1rem;
+}
+
+.source + div {
   color: var(--text-secondary);
   font-size: 0.8rem;
 }
@@ -129,5 +137,17 @@
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .contain {
+    padding: 0.5rem;
+  }
+  .sourceGrid div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
   }
 }

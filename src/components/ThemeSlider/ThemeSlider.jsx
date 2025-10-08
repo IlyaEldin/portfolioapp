@@ -1,13 +1,22 @@
 import { useTheme } from "../../hooks/useTheme";
 import "./ThemeSlider.css";
 
-const ThemeSlider = () => {
+const ThemeSlider = ({ isMobileOpen }) => {
   const { theme, toggleTheme, lightTheme } = useTheme();
 
   return (
     <div className='theme-slider'>
-      <button className='theme-slider-btn' onClick={toggleTheme}>
-        {theme === lightTheme ? "☀️ Светлая" : "🌙 Тёмная"}
+      <button
+        className={
+          isMobileOpen
+            ? "theme-slider-btn"
+            : "theme-slider-btn theme-slider-btn-all"
+        }
+        onClick={toggleTheme}
+      >
+        {isMobileOpen
+          ? `${theme === lightTheme ? "☀️" : "🌙"}`
+          : `${theme === lightTheme ? "☀️ Светлая" : "🌙 Тёмная"}`}
       </button>
     </div>
   );

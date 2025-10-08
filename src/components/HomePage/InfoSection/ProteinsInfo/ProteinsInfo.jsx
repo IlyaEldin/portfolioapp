@@ -31,19 +31,19 @@ export default function ProteinsInfo() {
         <div className={classes.sourceGrid}>
           <div className={classes.source}>
             <div>🍗</div>
-            <span>Курица</span>
+            <div>Курица</div>
           </div>
           <div className={classes.source}>
             <div>🐟</div>
-            <span>Рыба</span>
+            <div>Рыба</div>
           </div>
           <div className={classes.source}>
             <div>🥚</div>
-            <span>Яйца</span>
+            <div>Яйца</div>
           </div>
           <div className={classes.source}>
             <div>🌰</div>
-            <span>Миндаль</span>
+            <div>Миндаль</div>
           </div>
         </div>
       </div>

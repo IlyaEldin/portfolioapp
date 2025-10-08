@@ -72,3 +72,9 @@
   font-style: italic;
   padding: 40px 0;
 }
+
+@media (max-width: 768px) {
+  .postsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
